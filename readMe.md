@@ -1,16 +1,14 @@
 # Active Contour Without Edges
 
-## Included Files
+This repository provides a Windows-ready Python script for Chan-Vese active contour segmentation.
 
-This repository contains all files needed to run the project:
+## Included Files
 
 | File | Description |
 | --- | --- |
-| `active_contour_without_edges.py` | Main Python script for running Chan-Vese active contour segmentation. |
-| `generate_sample_image.py` | Generates a simple `sample.bmp` test image. |
-| `requirements.txt` | Python package dependencies. |
-| `run_sample_windows.bat` | Windows batch script for automatic setup and sample execution. |
-| `readMe.md` | Project usage instructions. |
+| `active_contour_without_edges.py` | Main script for running active contour segmentation on an input image. |
+| `requirements.txt` | Python dependencies required by the script. |
+| `readMe.md` | Setup and usage instructions. |
 
 ## Virtual Environment Requirements
 
@@ -22,13 +20,13 @@ Create a virtual environment:
 py -3 -m venv .venv
 ```
 
-Activate it in PowerShell:
+Activate the virtual environment:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-If PowerShell blocks activation, run:
+If PowerShell blocks activation, allow local script execution for the current user:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -49,60 +47,41 @@ python -m pip install -r requirements.txt
 
 ## How To Run
 
-### Option 1: Run the Windows Batch File
+Prepare an input image first. The script supports common OpenCV-readable image formats such as `.bmp`, `.png`, `.jpg`, `.jpeg`, `.tif`, and `.tiff`.
 
-Double-click:
-
-```text
-run_sample_windows.bat
-```
-
-Or run it from PowerShell:
-
-```powershell
-.\run_sample_windows.bat
-```
-
-This creates the virtual environment if needed, installs dependencies, generates `sample.bmp`, runs the segmentation, and saves results in:
-
-```text
-results
-```
-
-### Option 2: Run Commands Manually
-
-Generate a sample image:
-
-```powershell
-python generate_sample_image.py
-```
-
-Run segmentation on the sample image:
-
-```powershell
-python active_contour_without_edges.py --image sample.bmp --output-dir results
-```
-
-Run segmentation on your own image:
+Run segmentation:
 
 ```powershell
 python active_contour_without_edges.py --image "C:\path\to\your\image.bmp" --output-dir results
 ```
 
+Example if the image is in the project folder:
+
+```powershell
+python active_contour_without_edges.py --image 1.bmp --output-dir results
+```
+
 Useful optional arguments:
 
 ```powershell
-python active_contour_without_edges.py --image sample.bmp --output-dir results --iterations 80 --save-every 1
+python active_contour_without_edges.py --image 1.bmp --output-dir results --iterations 80 --save-every 1
 ```
 
-To show OpenCV preview windows while running:
+Show OpenCV preview windows while running:
 
 ```powershell
-python active_contour_without_edges.py --image sample.bmp --output-dir results --display
+python active_contour_without_edges.py --image 1.bmp --output-dir results --display
 ```
 
-The final output image is saved as:
+The final result is saved as:
 
 ```text
 results\final_contour.png
+```
+
+Intermediate contour images are saved according to `--save-every`, for example:
+
+```text
+results\iteration_002.png
+results\iteration_004.png
 ```
