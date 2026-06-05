@@ -8,12 +8,12 @@ This repository provides a Windows-ready Python script for Chan-Vese active cont
 | --- | --- |
 | `active_contour_without_edges.py` | Main script for running active contour segmentation on an input image. |
 | `requirements.txt` | Python dependencies required by the script. |
+| `sample_input.png` | Ready-to-use sample image for testing the script. |
 | `readMe.md` | Setup and usage instructions. |
 
 ## Virtual Environment Requirements
 
 Use Python 3.9 or newer on Windows.
-
 
 Install dependencies:
 
@@ -24,15 +24,21 @@ python -m pip install -r requirements.txt
 
 ## How To Run
 
-Prepare an input image first. The script supports common OpenCV-readable image formats such as `.bmp`, `.png`, `.jpg`, `.jpeg`, `.tif`, and `.tiff`.
+You can run the script directly with the included sample image:
 
-Run segmentation:
+```powershell
+python active_contour_without_edges.py --image sample_input.png --output-dir results
+```
+
+You can also prepare your own input image. The script supports common OpenCV-readable image formats such as `.bmp`, `.png`, `.jpg`, `.jpeg`, `.tif`, and `.tiff`.
+
+Run segmentation on your own image:
 
 ```powershell
 python active_contour_without_edges.py --image "C:\path\to\your\image.bmp" --output-dir results
 ```
 
-Example if the image is in the project folder:
+Example if your image is in the project folder:
 
 ```powershell
 python active_contour_without_edges.py --image 1.bmp --output-dir results
@@ -41,13 +47,13 @@ python active_contour_without_edges.py --image 1.bmp --output-dir results
 Useful optional arguments:
 
 ```powershell
-python active_contour_without_edges.py --image 1.bmp --output-dir results --iterations 80 --save-every 1
+python active_contour_without_edges.py --image sample_input.png --output-dir results --iterations 80 --save-every 1
 ```
 
 Show OpenCV preview windows while running:
 
 ```powershell
-python active_contour_without_edges.py --image 1.bmp --output-dir results --display
+python active_contour_without_edges.py --image sample_input.png --output-dir results --display
 ```
 
 The final result is saved as:
