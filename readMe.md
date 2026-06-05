@@ -14,29 +14,6 @@ This repository provides a Windows-ready Python script for Chan-Vese active cont
 
 Use Python 3.9 or newer on Windows.
 
-Create a virtual environment:
-
-```powershell
-py -3 -m venv .venv
-```
-
-Activate the virtual environment:
-
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
-
-If PowerShell blocks activation, allow local script execution for the current user:
-
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-
-Then activate again:
-
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
 
 Install dependencies:
 
